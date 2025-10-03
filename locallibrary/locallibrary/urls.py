@@ -26,14 +26,17 @@ urlpatterns = [
 ]
 
 # Use include() to add paths from the catalog application
+# “Any URL that starts with /catalog/ should be handled by the catalog.urls file.”
 urlpatterns += [
     path('catalog/', include('catalog.urls')),
 ]
 
 # Add URL maps to redirect the base URL to our application
+# “If someone visits the base URL (/), redirect them to /catalog/.”
 urlpatterns += [
     path('', RedirectView.as_view(url='catalog/', permanent=True)),
 ]
 
 # Serve static files like CSS, JavaScript, and images during development
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
