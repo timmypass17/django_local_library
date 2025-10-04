@@ -14,5 +14,5 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('allbooks/', views.LoanedBooksListView.as_view(), name='all-borrowed'),
+    path('allbooks/', views.LoanedBooksAllListView.as_view(), name='all-borrowed'),
 ]
