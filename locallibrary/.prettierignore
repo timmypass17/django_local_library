@@ -1,2 +1,3 @@
 # Prettier vscode extension not support Django template tags {% tag %}
 base_generic.html
+catalog/templates/catalog/*

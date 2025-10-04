@@ -32,7 +32,11 @@ def index(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
 
-
+# Using class-based generic views, Djanjo automatically looks for template <app_label>/<model_name>_list.html
+# app_label: "catalog"
+# model_name = "Book"
+# So Django will look for: catalog/templates/catalog/book_list.html
+# Or you can specific explicity using template_name
 class BookListView(generic.ListView):
     model = Book
     context_object_name = 'book_list'   # your own name for the list as a template variable
@@ -43,3 +47,10 @@ class BookListView(generic.ListView):
 class BookDetailView(generic.DetailView):
     model = Book
 
+class AuthorListView(generic.ListView):
+    model = Author
+    context_object_name = 'author_list'
+    paginate_by = 2
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
